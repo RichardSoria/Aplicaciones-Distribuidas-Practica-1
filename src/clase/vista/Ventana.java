@@ -13,10 +13,11 @@ public class Ventana extends JFrame{
     private JButton btnMultiplicar;
     private JButton btnDividir;
     private JLabel lblResultado;
+    private JButton btnLimpiarCampos;
 
     public Ventana() {
         setTitle("Calculadora");
-        setSize(300, 250);
+        setSize(300, 280);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);
@@ -47,8 +48,12 @@ public class Ventana extends JFrame{
         btnDividir.setBounds(160, 140, 80, 30);
         add(btnDividir);
 
+        btnLimpiarCampos = new JButton("C");
+        btnLimpiarCampos.setBounds(50, 180, 80, 30);
+        add(btnLimpiarCampos);
+
         lblResultado = new JLabel("Resultado: ");
-        lblResultado.setBounds(50, 180, 200, 30);
+        lblResultado.setBounds(50, 210, 200, 30);
         add(lblResultado);
 
         // Action listeners for buttons
@@ -82,6 +87,12 @@ public class Ventana extends JFrame{
             } else {
                 lblResultado.setText("Error: División por cero");
             }
+        });
+
+        btnLimpiarCampos.addActionListener(e -> {
+            txtNumero1.setText("");
+            txtNumero2.setText("");
+            lblResultado.setText("Resultado: ");
         });
 
     }
